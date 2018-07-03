@@ -18,16 +18,22 @@ class loginM extends CI_Model {
             $_SESSION['id_user'] = $row['IdU'];
             $_SESSION['email'] = $row['EmailU'];
         }else{
-            $res = false;
+            $req = "SELECT IdC,EmailC,PasswordC FROM coach WHERE EmailC = '".$mail."'";
+            $query = $this->db->query($req);
+            $row = $query->row_array();
+            if($mail == $row['EmailC'] && $password == $row['PasswordC']) {
+                $res = true;
+                if(!isset($_SESSION)){
+                    session_start();
+                }
+                $_SESSION['id_coach'] = $row['IdC'];
+                $_SESSION['email'] = $row['EmailC'];
+            }else{
+                $res = false;
+            }
         }
 
         return $res;
-    }
-
-    public function disconnect(){
-        session_destroy();
-
-        redirect('https://www.google.fr');
     }
 
     public function reset_password(){

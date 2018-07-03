@@ -3,15 +3,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
-    public function __construct(){
-        parent::__construct();
-    }
-
     public function index()
 	{
 	    $this->load->helper('assets');
 		$this->load->view('accueil');
 	}
+
+    public function signup(){
+        $this->load->view('connexion');
+    }
 
 	public function authentifier(){
 	    $this->load->model('loginM');
@@ -25,7 +25,8 @@ class Login extends CI_Controller {
     }
 
     public function logout(){
-	    $this->loginM->disconnect();
+	    session_destroy();
+        $this->load->view('accueil');
     }
 
     public function reset_password(){
