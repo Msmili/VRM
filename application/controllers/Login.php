@@ -5,8 +5,10 @@ class Login extends CI_Controller {
 
     public function index()
 	{
-	    $this->load->helper('assets');
-		$this->load->view('accueil');
+        $this->load->helper('assets');
+        $this->load->view('main/header');
+        $this->load->view('accueil');
+        $this->load->view('main/footer');
 	}
 
     public function signup(){
@@ -18,7 +20,7 @@ class Login extends CI_Controller {
 	    $res = $this->loginM->connexion();
 
 	    if($res){
-	        $this->load->view('accueil');
+	        $this->index();
         }else{
 	        $this->load->view('connexion');
         }
@@ -26,7 +28,7 @@ class Login extends CI_Controller {
 
     public function logout(){
 	    session_destroy();
-        $this->load->view('accueil');
+        redirect($this->index());
     }
 
     public function reset_password(){
