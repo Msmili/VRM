@@ -15,11 +15,17 @@ class Login extends CI_Controller {
 
 	public function authentifier(){
 	    $this->load->model('loginM');
-	    //$mail = $_POST['email'];
-	    //$pass = $_POST['password'];
-        $mail = 'test';
-        $pass = 'test';
-	    $this->loginM->connexion($mail,$pass);
+	    $res = $this->loginM->connexion();
+
+	    if($res){
+	        $this->load->view('accueil');
+        }else{
+	        $this->load->view('connexion');
+        }
+    }
+
+    public function logout(){
+	    $this->loginM->disconnect();
     }
 
     public function reset_password(){

@@ -69,6 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-md-6">
                     <button type="submit" class="btn btn-success"><i class="fa fa-sign-in"></i> Connexion</button>
                     <a class="btn btn-link" href="login/reset_password">Mot de passe oublié?</a>
+                    <a class="btn btn-link" href="login/logout">Déconnexion</a>
                 </div>
             </div>
         </div>
