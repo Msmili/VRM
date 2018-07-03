@@ -2,11 +2,6 @@
 
 class loginM extends CI_Model {
     /*Affiche toute les associations*/
-    function __construct()
-    {
-        // Call the Model constructor
-        parent::__construct();
-    }
 
     function connexion($mail, $pass){
 
@@ -15,7 +10,7 @@ class loginM extends CI_Model {
         $query = $this->db->query($req);
         $row = $query->row();
 
-        return $rpw;
+        return $row;
     }
 
 }
