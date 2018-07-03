@@ -6,28 +6,37 @@ class Login extends CI_Controller {
     public function index()
 	{
         $this->load->helper('assets');
-        $this->load->view('main/header');
         $this->load->view('accueil');
-        $this->load->view('main/footer');
 	}
 
+    public function loader($page="",$data = array()){
+        $this->load->view('main/header');
+        $this->load->view($page,$data);
+        $this->load->view('main/footer');
+    }
+
     public function signup(){
-        $this->load->view('connexion');
+        $this->loader('connexion');
     }
 
 	public function authentifier(){
 	    $this->load->model('loginM');
 	    $res = $this->loginM->connexion();
 
-	    if($res){
-	        $this->index();
+	    if($res == 'user'){
+            $this->loader('accueil');
+        }else if($res == 'coach'){
+	        //$data['id'] = $_SESSION['id_coach'];
+	        redirect('coach/programme');
+            //$this->loader('coach/programme',$data['id']);
         }else{
-	        $this->load->view('connexion');
+            $this->loader('connexion');
         }
     }
 
     public function logout(){
 	    session_destroy();
+        $this->loader('accueil');
         redirect($this->index());
     }
 
@@ -40,6 +49,7 @@ class Login extends CI_Controller {
             $data['msg'] = 'Désolé mais vos mots de passes ne correspondent pas.';
         }
 
-        $this->load->view('connexion',$data);
+        $this->loader('connexion',$data);
+//        $this->load->view('connexion');
     }
 }
