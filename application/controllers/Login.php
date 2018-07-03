@@ -29,6 +29,14 @@ class Login extends CI_Controller {
     }
 
     public function reset_password(){
+        $res = $this->loginM->reset_password();
 
+        if($res){
+            $data['msg'] = 'Votre mot de passe a été modifié.';
+        }else{
+            $data['msg'] = 'Désolé mais vos mots de passes ne correspondent pas.';
+        }
+
+        $this->load->view('connexion',$data);
     }
 }
