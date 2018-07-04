@@ -32,8 +32,6 @@ class coachM extends CI_Model{
 		
 		return $row;
 	}
-<<<<<<< HEAD
-	
 	
 	function selectClients($idCoach){
 		
@@ -44,7 +42,3 @@ class coachM extends CI_Model{
 		return $row;
 	}	
 }
-=======
-
-}
->>>>>>> ba64ba9e8104cea3936c15a54534e3765d7ab268
