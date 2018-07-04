@@ -1,3 +1,4 @@
+</div>
 </body>
 <footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
     <h4>Follow Us</h4>
@@ -13,7 +14,6 @@
         <a class="w3-button w3-theme" href="#myPage"><span class="w3-xlarge">
     <i class="fa fa-chevron-circle-up"></i></span></a>
     </div>
-
 
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js></script>

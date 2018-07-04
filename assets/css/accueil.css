@@ -11,3 +11,15 @@
     text-align: left;
     vertical-align: middle;
 }
+
+.container{
+    min-height: 550px;
+    margin-top: 100px;
+    margin-bottom: 150px;
+}
+
+footer{
+    position:relative;
+    bottom:0;
+    width: 100%;
+}

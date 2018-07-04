@@ -24,4 +24,4 @@
     </table>
 <!--Mettre un if pour icon activer ou desactiver regarder pour les couleurs-->
 <!--    Vor avec Vissarut pour modal ajout programme-->
-    <a class="btn btn-success" href=""'.site_url('coach/add').'"">Ajouter un programme</a>
+    <a class="btn btn-success" href="'.site_url('coach/add').'">Ajouter un programme</a>
