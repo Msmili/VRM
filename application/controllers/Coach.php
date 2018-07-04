@@ -15,12 +15,16 @@
         }
 
         public function programme(){
-            $this->load->model('coachM');
-
-            $data['liste'] = $this->coachM->liste_prog($_SESSION['id_coach']);
+            $data['liste'] = $this->programmeM->list_prog($_SESSION['id_coach']);
 
             $this->loader('coach/programme',$data);
         }
 
+        public function seance(){
+            $idC = $_SESSION['id_coach'];
+            $idP = 1;
+            $data['liste'] = $this->seanceM->list_seance($idC, $idP);
+            $this->loader('coach/seance',$data);
+        }
 
     }

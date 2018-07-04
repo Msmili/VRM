@@ -55,7 +55,7 @@ class loginM extends CI_Model {
     }
 	
 	function selectUser($mail){
-		$req = "Select * FROM User Where EmailU = '".$mail"';";
+		$req = "Select * FROM User Where EmailU = '".$mail."';";
         $query = $this->db->query($req);
         $row = $query->row_array();
 		
@@ -63,7 +63,7 @@ class loginM extends CI_Model {
 	}
 	
 	function selectIdUser($mail){
-		$req = "Select IdU FROM User Where EmailU = '".$mail"';";
+		$req = "Select IdU FROM User Where EmailU = '".$mail."';";
         $query = $this->db->query($req);
         $row = $query->row_array();
 		
