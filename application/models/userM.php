@@ -63,4 +63,12 @@ class userM extends CI_Model{
 
 	    return $row;
 	}
+
+	public function detail_pack($id){
+        $req = "SELECT * FROM programme WHERE idP = ".$id;
+        $query = $this->db->query($req);
+        $row = $query->result_array();
+
+        return $row;
+    }
 }

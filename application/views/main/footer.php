@@ -26,7 +26,11 @@
         if(isset($_SESSION['id_coach'])){
             echo "<script src='".add_js('coach')."'></script>";
         }
+        if(isset($_SESSION['id_user'])){
+            echo "<script src='".add_js('user')."'></script>";
+        }
     ?>
+
 
 
 </footer>

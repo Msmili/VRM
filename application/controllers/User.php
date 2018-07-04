@@ -23,4 +23,10 @@
 
             $this->loader('user/pack',$data);
         }
+
+        public function detail($id=""){
+            $data['pack'] = $this->userM->detail_pack($id);
+
+            $this->loader('user/detail',$data);
+        }
     }

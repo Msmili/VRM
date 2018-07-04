@@ -43,6 +43,7 @@ $(document).ready(function() {
         })
     });
 
+
     var modals = $('.modal.multi-step');
 
     modals.each(function(idx, modal) {
