@@ -11,7 +11,7 @@ class loginM extends CI_Model {
         $row = $query->row_array();
 
         if($mail == $row['EmailU'] && $password == $row['PasswordU']){
-            $res = true;
+            $res = 'user';
             if(!isset($_SESSION)){
                 session_start();
             }
@@ -22,14 +22,14 @@ class loginM extends CI_Model {
             $query = $this->db->query($req);
             $row = $query->row_array();
             if($mail == $row['EmailC'] && $password == $row['PasswordC']) {
-                $res = true;
+                $res = 'coach';
                 if(!isset($_SESSION)){
                     session_start();
                 }
                 $_SESSION['id_coach'] = $row['IdC'];
                 $_SESSION['email'] = $row['EmailC'];
             }else{
-                $res = false;
+                $res = 'error';
             }
         }
 

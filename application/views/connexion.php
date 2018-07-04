@@ -1,17 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="fr">
-<head>
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo add_css('accueil'); ?>" />
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo add_css('bootstrap'); ?>" />
-    <script src="<?php echo add_js('jquery-3.3.1.min'); ?>"></script>
-    <script src="<?php echo add_js('bootstrap'); ?>"></script>
-
-</head>
-<body>
-
-<div class="container">
     <?php
         $attributes = array('class' => 'form-horizontal', 'id' => 'login', 'method'=> 'POST');
         echo form_open('login/authentifier', $attributes);
@@ -74,5 +60,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </form>
     </div>
-</body>
-</html>
+<!--</body>-->
+<!--</html>-->
