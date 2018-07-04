@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo add_css('accueil'); ?>" />
     <link rel="stylesheet" type="text/css" media="screen" href="<?php echo add_css('bootstrap'); ?>" />
-
+    <?php if(isset($_SESSION['id_user']) || empty($_SESSION)){?>
+        <link rel="stylesheet" type="text/css" media="screen" href="<?php echo add_css('user'); ?>" />
+    <?php }?>
 <!--    DataTables-->
     <link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"/>
@@ -22,7 +24,7 @@
                 <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
                 <a href="#" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Logo</a>
                 <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Notre équipe</a>
-                <a href="#work" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Packs</a>
+                <a href="<?php echo site_url('user/pack'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Packs</a>
                 <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
                 <?php
                     if(isset($_SESSION['id_user']) || isset($_SESSION['id_coach'])){

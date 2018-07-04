@@ -1,0 +1,57 @@
+.packs{
+    position: relative;
+    display: inline-block;
+    width: 25%;
+    height: 75%;
+    margin: 3% 3%;
+    padding: 5px 5px;
+    color: white;
+    background: rgba(0,0,0,0.95);
+
+}
+.little{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.miniature{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.overflow {
+    height: 150px; /* hauteur de la zone tronquée, à ajuster en fonction du besoin */
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+.overflow:after {
+    content: ""; /* pour créer un élément fantôme */
+    pointer-events: none; /* pour que l'élément n'empêche pas la sélection de texte (navigateurs supportant cette propriété) */
+    width: 100%; /* pour que l'élément fantôme couvre la largeur entière et 30% de la hauteur */
+    height: 30%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    /* lignes suivantes : dégradé vertical de blanc transparent vers blanc opaque (navigateurs supportant les dégradés CSS, navigateurs supportant les couleurs rgba */
+    background: -webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+    background: -moz-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+    background: -ms-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+    background: -o-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+    background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+}
+.infos{
+    position: relative;
+    vertical-align: 18px;
+}
+.prix{
+    position: absolute;
+    vertical-align: 18px;
+    right:0;
+}
+.centre{
+    position: relative;
+    margin:auto 40px;
+}

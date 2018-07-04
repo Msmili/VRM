@@ -55,4 +55,12 @@ class userM extends CI_Model{
 		
 		return $row;
 	}
+
+	public function liste_pack(){
+	    $req = "SELECT * FROM programme";
+	    $query = $this->db->query($req);
+	    $row = $query->result_array();
+
+	    return $row;
+	}
 }

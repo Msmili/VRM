@@ -1,6 +1,7 @@
 <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
-    class userC	 extends CI_Controller {
+
+    class user	extends CI_Controller {
         public function index()
         {
             $this->load->helper('assets');
@@ -15,5 +16,11 @@
             $this->load->model('userM');
             $data['liste'] = $this->userM->liste_prog($_SESSION['idU']);
             $this->loader('user/profil',$data);
+        }
+
+        public function pack(){
+            $data['list'] = $this->userM->liste_pack();
+
+            $this->loader('user/pack',$data);
         }
     }
