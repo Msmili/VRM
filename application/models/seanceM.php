@@ -1,5 +1,6 @@
 <?php
 	
+class seanceM extends CI_Model{
 	
 	function addSeance($libelle, $description, $dateheure, $user, $programme){
 
