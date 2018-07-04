@@ -15,21 +15,24 @@
                         <td>' . $liste[$i]['DescriptifP'] . '</td>
                         <td>' . $liste[$i]['Prix'] . '</td>
                         <td>
-                            <span id="'. $liste[$i]['IdP'].'" class="remove"><i class="fa fa-trash"></i></span>
-                            ';
+                            <span id="'. $liste[$i]['IdP'].'" class="remove"><i class="fa fa-trash"></i></span>';
                         if($liste[$i]['ActifP'] == 1) {
                             echo '<span id="' . $liste[$i]['IdP'] . '" class="unactive"><i class="fa fa-exclamation-triangle"></i></span>';
                         }else{
                             echo '<span id="' . $liste[$i]['IdP'] . '" class="active"><i class="fa fa-check"></i></span>';
                         }
-
                     echo '</td>
                        </tr>';
                 }
             ?>
     </table>
-
-    <form class="modal multi-step" id="demo-modal">
+    <div class="text-center">
+        <button class="btn btn-success" data-toggle="modal" data-target="#demo-modal">Ajouter un programme</button>
+    </div>
+    <?php
+        $attributes = array('class' => 'modal multi-step', 'id' => 'demo-modal', 'method'=> 'POST');
+        echo form_open('coach/add_programme', $attributes);
+    ?>
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -59,7 +62,16 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-9">
+                        <div class="form-group has-danger">
+                            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                <input type="text" name="nb" class="form-control" id="nb" placeholder="Nombre de séance" required autofocus>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!--Début des inputs seance a remplis-->
                 <div class="modal-body step step-2">
                     <div class="col-md-9">
                         <div class="form-group has-danger">
@@ -95,18 +107,14 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent()">Continue</button>
-                    <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent()" id="final">Continue</button>
+                    <button type="button" class="btn btn-primary step step-1" data-step="1" onclick="sendEvent()" id="next">Continue</button>
+                    <button type="submit" class="btn btn-primary step step-2" data-step="2" id="final">Valider</button>
                 </div>
             </div>
         </div>
-    </form>
-    <div class="text-center">
-        <button class="btn btn-success" data-toggle="modal" data-target="#demo-modal">Ajouter un programme</button>
-    </div>
+ <?php form_close(); ?>
             <!--/.Content-->
-        </div>
-    </div>
+
     <!-- Modal -->
 
 <!--Mettre un if pour icon activer ou desactiver regarder pour les couleurs-->

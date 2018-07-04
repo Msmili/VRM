@@ -174,12 +174,7 @@ $(document).ready(function() {
         }
     }
 
-    $('#final').click(function(){
-        var formData = $(this).serialize();
-        console.log(formData);
-        $('#prvw').text(formData);
-        $('#prvw').text('#form1 Preview');
-    })
+
 
    /* $('.title_seance').click(function(){
         var id_seance = this.id;

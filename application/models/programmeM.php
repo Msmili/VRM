@@ -2,11 +2,17 @@
 	
 class programmeM extends CI_Model{
 
-    public function addProgramme($intitule, $description, $prix, $idCoach)
+    public function addProgramme($intitule, $description, $prix,$nb, $idCoach)
     {
 
-        $req = "INSERT INTO programme (intituleP, descriptionP, prix, nbSeance, idCoach) VALUES ('" . $intitule . "','" . $description . "','" . $prix . "','" . $idCoach . "'";
+        $req = "INSERT INTO programme (intituleP, descriptifP, prix,nbSeance, idCoach) VALUES ('" . $intitule . "','" . $description . "','" . $prix . "','" . $nb . "','" . $idCoach . "')";
+        $this->db->query($req);
+    }
+
+    public function last_programme(){
+        $req = "SELECT IdP FROM programme ORDER BY IdP DESC";
         $query = $this->db->query($req);
+
         $row = $query->row_array();
 
         return $row;

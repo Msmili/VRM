@@ -1,19 +1,19 @@
 <?php
 	
 class seanceM extends CI_Model{
-	
-	function addSeance($libelle, $description, $dateheure, $user, $programme){
 
-		$req = "INSERT INTO seance (libelleS, descriptionS, DateHeure, idUser, idProgramme) VALUES ('".$libelle."','".$description."','".$dateheure."','".$user."','".$programme."';";
-		$query = $this->db->query($req);
-        $row = $query->row_array();
-		
-		return $row;
-	}	
+	function addSeance($libelle, $description, $duree, $programme)
+    {
 
-    public function list_seance($idC, $idP){
+        $req = "INSERT INTO seance (libelleS, descriptifS, DureeS, idProgramme) VALUES ('" . $libelle . "','" . $description . "','" . $duree . "','" . $programme . "');";
+        $this->db->query($req);
+    }
+
+    public function list_seance($idC){
         $req = "SELECT IdS,LibelleS,DescriptifS, Dateheure, ValiderS, DureeS,NomU, PrenomU,IdU, IdProgramme,IntituleP,idCoach
-                FROM programme INNER JOIN seance ON programme.idP = seance.idProgramme INNER JOIN user ON seance.idUser = user.idU
+                FROM programme 
+                INNER JOIN seance ON programme.idP = seance.idProgramme 
+                INNER JOIN user ON seance.idUser = user.idU
                 WHERE programme.idCoach = '".$idC."' 
                 AND Dateheure > '".date('Y-m-d H:i:s')."'
                 ORDER BY Dateheure";
@@ -24,7 +24,15 @@ class seanceM extends CI_Model{
 
         return $row;
     }	
-	
+
+    public function seance_programme($idP){
+        $req = "SELECT LibelleS,DescriptifS,DureeS FROM seance WHERE IdProgramme = '".$idP."'";
+        $query = $this->db->query($req);
+        $row = $query->result_array();
+
+        return $row;
+    }
+
 	function selectSeances($idCoach){
 		
 		
