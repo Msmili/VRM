@@ -17,7 +17,7 @@
                         <label class="sr-only" for="email">Login</label>
                         <div class="input-group mb-2 mr-sm-2 mb-sm-0">
                             <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
-                            <input type="text" name="email" class="form-control" id="email"
+                            <input type="email" name="email" class="form-control" id="email"
                                    placeholder="E-mail" required autofocus>
                         </div>
                     </div>
@@ -58,7 +58,7 @@
                 </div>
             </div>
         </div>
-    </form>
+    <?php  form_close(); ?>
     </div>
 <!--</body>-->
 <!--</html>-->

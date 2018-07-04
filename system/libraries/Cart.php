@@ -491,7 +491,7 @@ class CI_Cart {
 	/**
 	 * Get cart item
 	 *
-	 * Returns the details of a specific item in the cart
+	 * Returns the detail.php of a specific item in the cart
 	 *
 	 * @param	string	$row_id
 	 * @return	array

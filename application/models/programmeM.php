@@ -2,13 +2,15 @@
 	
 class programmeM extends CI_Model{
 
-    public function addProgramme($intitule, $description, $prix, $idCoach){
-		
-		$req = "INSERT INTO programme (intituleP, descriptionP, prix, nbSeance, idCoach) VALUES ('".$intitule."','".$description."','".$prix."','".$nbSeance."','".$idCoach."'";
-		$query = $this->db->query($req);
+    public function addProgramme($intitule, $description, $prix, $idCoach)
+    {
+
+        $req = "INSERT INTO programme (intituleP, descriptionP, prix, nbSeance, idCoach) VALUES ('" . $intitule . "','" . $description . "','" . $prix . "','" . $idCoach . "'";
+        $query = $this->db->query($req);
         $row = $query->row_array();
-		
-		return $row;
+
+        return $row;
+    }
 
     public function updateProgramme($description, $prix, $idProgramme){
 		
@@ -19,31 +21,23 @@ class programmeM extends CI_Model{
 		return $row;
 	}
 	
-	function ActiverProg($idProgramme){
-				
-		$req = "UPDATE achater SET ActifP = true WHERE idProgramme = '".$idProgramme."';";
-		$query = $this->db->query($req);
-        $row = $query->row_array();
-		
-		return $row;
+	public function ActiverProg($idProgramme){
+        $req = "UPDATE seance SET ActifS = 1 WHERE idProgramme = '".$idProgramme."'";
+        $this->db->query($req);
+        $req = "UPDATE programme SET ActifP = 1 WHERE IdP = '".$idProgramme."';";
+        $this->db->query($req);
 	}
 	
-	function DeactiverProg($idProgramme){
-		
-		$req = "UPDATE achater SET ActifP = false WHERE idProgramme = '".$idProgramme."';";
-		$query = $this->db->query($req);
-        $row = $query->row_array();
-		
-		return $row;
+	public function DesactiverProg($idProgramme){
+		$req = "UPDATE programme SET ActifP = 0 WHERE IdP = '".$idProgramme."';";
+		$this->db->query($req);
 	}
 	
-	function SupprimerProg($idProgramme){
-		
-		$req = "DELETE FROM programme WHERE idProgramme = '".$idProgramme."';";
-		$query = $this->db->query($req);
-        $row = $query->row_array();
-		
-		return $row;
+	public function SupprimerProg($idProgramme){
+	    $req = "DELETE FROM seance WHERE idProgramme = '".$idProgramme ."';";
+	    $this->db->query($req);
+		$req = "DELETE FROM programme WHERE IdP = '".$idProgramme."';";
+		$this->db->query($req);
 	}
 
 

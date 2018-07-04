@@ -12,7 +12,7 @@ class seanceM extends CI_Model{
 	}	
 
     public function list_seance($idC, $idP){
-        $req = "SELECT IdS,LibelleS,DescriptifS, Dateheure, ValiderS, DureeS,NomU, PrenomU,IdU, IdProgramme,idCoach
+        $req = "SELECT IdS,LibelleS,DescriptifS, Dateheure, ValiderS, DureeS,NomU, PrenomU,IdU, IdProgramme,IntituleP,idCoach
                 FROM programme INNER JOIN seance ON programme.idP = seance.idProgramme INNER JOIN user ON seance.idUser = user.idU
                 WHERE programme.idCoach = '".$idC."' 
                 AND Dateheure > '".date('Y-m-d H:i:s')."'

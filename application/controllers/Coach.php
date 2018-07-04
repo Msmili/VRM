@@ -27,4 +27,27 @@
             $this->loader('coach/seance',$data);
         }
 
+        public function removePrg(){
+            $id_prg = $_POST['id'];
+
+            $this->programmeM->SupprimerProg($id_prg);
+        }
+
+        public function desactiverPrg(){
+            $id_prg = $_POST['id'];
+
+            $this->programmeM->DesactiverProg($id_prg);
+        }
+
+        public function activerPrg(){
+            $id_prg = $_POST['id'];
+
+            $this->programmeM->ActiverProg($id_prg);
+        }
+
+        public function detail_seance(){
+            $id_seance = $_POST['id'];
+
+            $this->loader('coach/detail');
+        }
     }
