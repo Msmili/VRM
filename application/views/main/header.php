@@ -22,10 +22,11 @@
         <?php if(isset($_SESSION['id_user']) || empty($_SESSION)){?>
             <div class="w3-bar w3-theme-d2 w3-left-align">
                 <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-                <a href="#" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Logo</a>
-                <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Notre équipe</a>
-                <a href="<?php echo site_url('user/pack'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Packs</a>
-                <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+                <a href="<?php echo site_url('Accueil/index'); ?>" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Logo</a>
+                <a href="<?php echo site_url('user/seance'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Suivi séance</a>
+                <a href="<?php echo site_url('user/programme'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Packs</a>
+                <a href="<?php echo site_url('user/profil'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Suivi programme</a>
+                <a href="<?php echo site_url('user/profil'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Profil</a>
                 <?php
                     if(isset($_SESSION['id_user']) || isset($_SESSION['id_coach'])){
                         echo '<a href = "'.site_url('login/logout').'" class="w3-bar-item w3-button w3-hide-small w3-hover-white" > Déconnexion</a >';
