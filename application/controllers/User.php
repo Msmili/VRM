@@ -53,4 +53,26 @@
 
             $this->profil();
         }
+
+        public function seance(){
+            $idU = $_SESSION['id_user'];
+            $data['liste'] = $this->seanceM->list_seanceUser($idU);
+            $this->loader('user/seance',$data);
+        }
+
+        public function evaluation($idS=""){
+            $data['infos'] = $this->evalM->getEvalUser($idS);
+            $this->loader('user/eval',$data);
+        }
+
+        public function add_eval(){
+            $ressenti = (isset($_POST['ressenti']))? $_POST['ressenti'] : '' ;
+            $difficulte = (isset($_POST['difficulte']))? $_POST['difficulte'] : '' ;
+            $avis = (isset($_POST['avis']))? $_POST['avis'] : '' ;
+            $id_user = (isset($_POST['id']))? $_POST['id'] : '' ;
+
+            $this->evalM->updateEvalUser($ressenti,$difficulte,$avis, $id_user);
+
+            $this->seance();
+        }
     }

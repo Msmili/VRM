@@ -10,13 +10,14 @@ class seanceM extends CI_Model{
     }
 
 	public function list_seanceUser($idU){
-        $req = "SELECT IdS,LibelleS,DescriptifS, Dateheure, ValiderS, DureeS,NomC, PrenomC,IdC, IdProgramme,IntituleP,idCoach
-                FROM programme , user 
-                INNER JOIN seance ON programme.idP = seance.idProgramme 
-                INNER JOIN user ON seance.idUser = user.idU
+        $req = "SELECT IdS,IntituleS,DescriptifS, DateheureE, ValiderE, DureeS,NomC, PrenomC,IdC, IdProgrammeS,IntituleP,idCoachP,IdE
+                FROM programme 
+                INNER JOIN seance ON programme.idP = seance.idProgrammeS
+                INNER JOIN evaluation ON seance.idS = evaluation.idSeanceE
+                INNER JOIN user ON evaluation.IdUserE = user.idU
+                INNER JOIN coach ON programme.idCoachP = coach.idC 
                 WHERE user.IdU = '".$idU."' 
-                AND Dateheure > '".date('Y-m-d H:i:s')."'
-                ORDER BY Dateheure";
+                ORDER BY DateheureE";
         $query = $this->db->query($req);
         $row = $query->result_array();
         return $row;
@@ -26,7 +27,7 @@ class seanceM extends CI_Model{
         $req = "SELECT DISTINCT(IdS),IntituleS,DescriptifS, DateHeureE, DureeS,NomU, PrenomU,IdU, IdProgrammeS,IntituleP,idCoachP
                 FROM programme 
                 INNER JOIN seance ON programme.idP = seance.idProgrammeS 
-                INNER JOIN evaluation ON programme.IdCoachP = evaluation.IdCoachE                
+                INNER JOIN evaluation ON programme.IdCoachP = evaluation.IdCoachE
                 INNER JOIN user ON evaluation.IdUserE = user.IdU
                 WHERE programme.idCoachP = '".$idC."' 
                 AND DateheureE > '".date('Y-m-d H:i:s')."'

@@ -16,7 +16,7 @@
                         <td> <a href="'.site_url('coach/detail').'/'.$liste[$i]['IdS'].'">' . $liste[$i]['IntituleP'] . '</a></td>
                         <td> <a href="'.site_url('coach/evaluation').'/'.$liste[$i]['IdS'].'">' . $liste[$i]['IntituleS'] . '</a></td>
                         <td>' . $liste[$i]['DescriptifS'] . '</td>
-                        <td>' . $liste[$i]['DureeS'] . '</td>
+                        <td>' . $liste[$i]['DateHeureE'] . '</td>
                         <td>' . $liste[$i]['DureeS'] . '</td>
                         <td>' . $liste[$i]['NomU'].' '. $liste[$i]['PrenomU']. '</td>                        
                    </tr>';

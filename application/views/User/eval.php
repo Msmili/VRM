@@ -4,7 +4,7 @@
     <?php
     // var_dump($infos);
     $attributes = array('class' => 'form-horizontal', 'id' => 'login', 'method'=> 'POST');
-    echo form_open('user/evaluation', $attributes);
+    echo form_open('user/add_eval', $attributes);
     ?>
     <div class="row">
         <div class="col-md-3">Ressenti</div>
@@ -12,13 +12,13 @@
             <div class="form-group has-danger field">
                 <label class="sr-only" for="sex">Ressenti</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <ul>
-                        <li>Trop facile</li>
-                        <li>Facile</li>
-                        <li>Correct</li>
-                        <li>Difficile</li>
-                        <li>Trop difficile</li>
-                    </ul>
+                    <select name="ressenti">
+                        <option value="Trop facile">Trop facile</option>
+                        <option value="Facile">Facile</option>
+                        <option value="Correct">Correct</option>
+                        <option value="Difficile">Difficile</option>
+                        <option value="Trop difficile">Trop difficile</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
             <div class="form-group has-danger field">
                 <label class="sr-only" for="difficulte">Difficulté</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <textarea id="difficulté" placeholder="Quelles ont été vos difficultés durant la séance?"></textarea>
+                    <textarea name="difficulte" id="difficulté" placeholder="Quelles ont été vos difficultés durant la séance?"></textarea>
                 </div>
             </div>
         </div>
@@ -40,12 +40,12 @@
             <div class="form-group has-danger field">
                 <label class="sr-only" for="avis">Avis</label>
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <textarea id="avis" placeholder="Quel avis avez vous sur la séance et sur le coach?"></textarea>
+                    <textarea name="avis" id="avis" placeholder="Quel avis avez vous sur la séance et sur le coach?"></textarea>
                 </div>
             </div>
         </div>
     </div>
-
+    <input type="hidden" name="id" value="<?php echo $infos['IdE']; ?>"/>
     <button type="submit" class="btn btn-primary" id="modif">Validez les infos</button>
 
     <?php

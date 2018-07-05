@@ -12,7 +12,15 @@
                 <div class="form-group has-danger field">
                     <label class="sr-only" for="sex">Sexe</label>
                     <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <input type="text" name="sex" class="form-control" id="sex" placeholder="<?php echo $infos['SexeU']; ?>">
+                        <?php
+                            if($infos['SexeU'] == 'M'){
+                                echo '<input type="radio" name="sex" value="M" checked="checked">M&nbsp;';
+                                echo '<input type="radio" name="sex" value="F">F';
+                            }else{
+                                echo '<input type="radio" name="sex" value="M">M&nbsp;';
+                                echo '<input type="radio" name="sex" value="F" checked="checked">F';
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
