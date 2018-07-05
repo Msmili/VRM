@@ -20,10 +20,11 @@
     <!-- Navbar -->
     <div class="w3-top">
         <div class="w3-bar w3-theme-d2 w3-left-align">
+            <a href="<?php echo site_url('Accueil/index'); ?>" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i> Accueil</a>
             <?php
                 if(isset($_SESSION['id_user'])) {
                     ?>
-                    <a href="<?php echo site_url('Accueil/index'); ?>" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"> Accueil</a>
+
                     <a href="<?php echo site_url('user/seance'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Suivi séance</a>
                     <a href="<?php echo site_url('user/programme'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Packs</a>
                     <a href="<?php echo site_url('user/suiviP'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Suivi programme</a>
@@ -31,8 +32,7 @@
                     <a href = "<?php echo site_url('login/logout'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white" > Déconnexion</a >
                     <?php
                 }else if(isset($_SESSION['id_coach'])) {
-                    echo ' <a href="' . site_url('Accueil/index') . '" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Logo</a>
-                    <a href = "' . site_url('Coach/seance') . '" class="w3-bar-item w3-button w3-hide-small w3-hover-white" > Séances </a >
+                    echo '<a href = "' . site_url('Coach/seance') . '" class="w3-bar-item w3-button w3-hide-small w3-hover-white" > Séances </a >
                     <a href="' . site_url('Coach/programme') . '" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Programmes</a>
                     <a href="' . site_url('Accueil/index') . '#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>';
 
@@ -43,14 +43,11 @@
                         echo '<a href = "' . site_url('login/inscription') . '" class="w3-bar-item w3-button w3-hide-small w3-hover-white" > Inscription</a >';
                     }
                 }else {?>
-                    <a href="<?php echo site_url('Accueil/index'); ?>" class="w3-bar-item w3-button w3-teal"><i
-                                    class="fa fa-home w3-margin-right"></i>Logo</a>
-                        <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Notre équipe</a>
-                        <a href="<?php echo site_url('user/pack'); ?>"
-                           class="w3-bar-item w3-button w3-hide-small w3-hover-white">Packs</a>
-                        <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
-                        <a href = "<?php echo site_url('login/signup'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white" > Connexion</a >
-                        <a href = "<?php echo site_url('login/inscription'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white" > Inscription</a >
+                    <a href="#team" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Notre équipe</a>
+                    <a href="<?php echo site_url('user/pack'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Packs</a>
+                    <a href="#contact" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Contact</a>
+                    <a href = "<?php echo site_url('login/signup'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white" > Connexion</a >
+                    <a href = "<?php echo site_url('login/inscription'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white" > Inscription</a >
               <?php
                 }
             ?>
