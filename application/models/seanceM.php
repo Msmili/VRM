@@ -91,4 +91,21 @@ class seanceM extends CI_Model{
 		
 		return $row;
 	}
+
+	public function seance_pack($id,$idU){
+        $req = "SELECT IdS,IntituleS,DescriptifS, DateheureE, ValiderE, DureeS,NomC, PrenomC,IdC, IdProgrammeS,IntituleP,idCoachP,IdE
+                FROM programme 
+                INNER JOIN seance ON programme.idP = seance.idProgrammeS
+                INNER JOIN evaluation ON seance.idS = evaluation.idSeanceE
+                INNER JOIN user ON evaluation.IdUserE = user.idU
+                INNER JOIN acheter ON user.idU = acheter.idUSerA
+                INNER JOIN coach ON programme.idCoachP = coach.idC 
+                WHERE user.IdU = '".$idU."' 
+                AND idP = '".$id."'
+                AND DateA = DateheureE
+                ORDER BY DateheureE";
+        $query = $this->db->query($req);
+        $row = $query->result_array();
+        return $row;
+    }
 }

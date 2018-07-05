@@ -24,6 +24,12 @@
             $this->loader('user/pack',$data);
         }
 
+        public function programme(){
+            $data['liste'] = $this->programmeM->user_prog($_SESSION['id_user']);
+
+            $this->loader('user/suiviP',$data);
+        }
+
         public function detail($id=""){
             $data['pack'] = $this->userM->detail_pack($id);
 
@@ -59,6 +65,11 @@
             $data['liste'] = $this->seanceM->list_seanceUser($idU);
             $this->loader('user/seance',$data);
         }
+        public function seanceP($id=""){
+            $idU = $_SESSION['id_user'];
+            $data['liste'] = $this->seanceM->seance_pack($id,$idU);
+            $this->loader('user/seanceP',$data);
+        }
 
         public function evaluation($idS=""){
             $data['infos'] = $this->evalM->getEvalUser($idS);
@@ -75,4 +86,5 @@
 
             $this->seance();
         }
+
     }

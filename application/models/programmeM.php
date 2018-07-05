@@ -55,4 +55,17 @@ class programmeM extends CI_Model{
 
         return $row;
     }
+    public function user_prog($idUser){
+
+        $req = "SELECT IntituleP , DescriptifP , PrixP , NomC , PrenomC , IdUserA , DateA,IdP
+                FROM acheter
+                INNER JOIN programme ON acheter.idProgrammeA = programme.idP
+                INNER JOIN user ON acheter.idUserA = user.idU
+                INNER JOIN coach ON programme.idCoachP = coach.idC
+		        AND IdUserA = '".$idUser."'
+		        ORDER BY DateA DESC;";
+        $query = $this->db->query($req);
+        $row = $query->result_array();
+        return $row;
+    }
 }

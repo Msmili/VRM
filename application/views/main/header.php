@@ -27,7 +27,7 @@
 
                     <a href="<?php echo site_url('user/seance'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Suivi séance</a>
                     <a href="<?php echo site_url('user/pack'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Packs</a>
-                    <a href="<?php echo site_url('user/suiviP'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Suivi programme</a>
+                    <a href="<?php echo site_url('user/programme'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Suivi programme</a>
                     <a href="<?php echo site_url('user/profil'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Profil</a>
                     <a href = "<?php echo site_url('login/logout'); ?>" class="w3-bar-item w3-button w3-hide-small w3-hover-white" > Déconnexion</a >
                     <?php

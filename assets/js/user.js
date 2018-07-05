@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $('#progUser').DataTable();
     paypal.Button.render({
         env: 'sandbox',
         client: {
