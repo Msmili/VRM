@@ -20,16 +20,8 @@ class userM extends CI_Model{
 	}
 	
 	function acheter($idUser, $idProduit){
-<<<<<<< HEAD
 	
 		$req = "INSERT INTO Acheter (idUser, idProgramme, DateA) VALUES ('".$idUser."','".$idProgramme."', '".date('Y-m-d H:i:s')."');";
-=======
-		
-		$dt = new DateTime('now');
-		$dt = $dt->fomat('d-m-Y H:i:s');
-		
-		$req = "INSERT INTO acheter (idUser, idProgramme, DateA) VALUES ('".$idUser."','".$idProgramme."', '".$dt."';";
->>>>>>> 0db11e08a41ca84cdb10999e7468bc2a7968e7f8
         $query = $this->db->query($req);
   	}
 		
