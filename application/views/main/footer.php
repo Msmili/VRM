@@ -15,9 +15,22 @@
     <i class="fa fa-chevron-circle-up"></i></span></a>
     </div>
 
-    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js></script>
 
     <script src="<?php echo add_js('jquery-3.3.1.min'); ?>"></script>
     <script src="<?php echo add_js('bootstrap'); ?>"></script>
+
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <?php
+        if(isset($_SESSION['id_coach'])){
+            echo "<script src='".add_js('coach')."'></script>";
+        }
+        if(isset($_SESSION['id_user'])){
+            echo "<script src='".add_js('user')."'></script>";
+        }
+    ?>
+
+
+
 </footer>

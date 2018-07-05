@@ -198,7 +198,7 @@ class CI_Encrypt {
 	 * This allows for backwards compatibility and a method to transition to the
 	 * new encryption algorithms.
 	 *
-	 * For more details, see https://codeigniter.com/user_guide/installation/upgrade_200.html#encryption
+	 * For more detail.php, see https://codeigniter.com/user_guide/installation/upgrade_200.html#encryption
 	 *
 	 * @param	string
 	 * @param	int		(mcrypt mode constant)

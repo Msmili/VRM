@@ -19,6 +19,10 @@ class Login extends CI_Controller {
         $this->loader('connexion');
     }
 
+    public function inscription(){
+        $this->loader('inscription');
+    }
+
 	public function authentifier(){
 	    $this->load->model('loginM');
 	    $res = $this->loginM->connexion();
