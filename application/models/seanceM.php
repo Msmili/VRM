@@ -108,4 +108,31 @@ class seanceM extends CI_Model{
         $row = $query->result_array();
         return $row;
     }
+
+    public function allSeance($idU){
+            $req = "SELECT IntituleS
+                FROM programme 
+                INNER JOIN seance ON programme.idP = seance.idProgrammeS
+                INNER JOIN evaluation ON seance.idS = evaluation.idSeanceE
+                INNER JOIN user ON evaluation.IdUserE = user.idU
+                WHERE user.IdU = '".$idU."' 
+                ORDER BY DateheureE";
+            $query = $this->db->query($req);
+            $row = $query->result_array();
+            return $row;
+
+    }
+    public function dtSeance($idU){
+            $req = "SELECT DateheureE
+                FROM programme 
+                INNER JOIN seance ON programme.idP = seance.idProgrammeS
+                INNER JOIN evaluation ON seance.idS = evaluation.idSeanceE
+                INNER JOIN user ON evaluation.IdUserE = user.idU
+                WHERE user.IdU = '".$idU."' 
+                ORDER BY DateheureE";
+            $query = $this->db->query($req);
+            $row = $query->result_array();
+            return $row;
+
+    }
 }

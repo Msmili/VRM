@@ -28,6 +28,11 @@
         }
         if(isset($_SESSION['id_user'])){
             echo "<script src='".add_js('user')."'></script>";
+            echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js'></script>";
+            echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js'></script>";
+            echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js'></script>";
+            echo "<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js'></script>";
+            echo "<script src='".add_js('chart')."'></script>";
         }
     ?>
 

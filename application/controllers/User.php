@@ -39,6 +39,8 @@
         public function profil(){
             $id = $_SESSION['id_user'];
             $data['infos'] = $this->loginM->selectUser($id);
+            $data['ttSeance'] = $this->seanceM->allSeance($id);
+            $data['dtSeance'] = $this->seanceM->dtSeance($id);
 
             $this->loader('user/profil',$data);
         }
