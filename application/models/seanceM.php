@@ -7,11 +7,11 @@ class seanceM extends CI_Model{
     }
 
     public function list_seance($idC, $idP){
-        $req = "SELECT IdS,LibelleS,DescriptifS, Dateheure, ValiderS, DureeS,NomU, PrenomU,IdU, IdProgramme,idCoach
-                FROM programme INNER JOIN seance ON programme.idP = seance.idProgramme INNER JOIN user ON seance.idUser = user.idU
-                WHERE programme.idCoach = '".$idC."' 
-                AND Dateheure > '".date('Y-m-d H:i:s')."'
-                ORDER BY Dateheure";
+        $req = "SELECT IdS, IntituleS, DescriptifS, DateHeureE, ValiderE, DureeS, NomU, PrenomU, IdU, IdProgramme, IdCoach
+                FROM Programme INNER JOIN Seance ON Programme.IdP = Seance.IdProgramme INNER JOIN User ON Seance.IdUser = User.IdU
+                WHERE Programme.IdCoach = '".$idC."' 
+                AND DateHeureE > '".date('Y-m-d H:i:s')."'
+                ORDER BY DateHeureE";
 
         $query = $this->db->query($req);
 

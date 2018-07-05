@@ -2,36 +2,40 @@
 	
 class programmeM extends CI_Model{
 
-    public function addProgramme($intitule, $description, $prix, $nbSeance, $idCoach){
+    public function addProgramme($intitule, $description, $prix, $idCoach){
 		
-		$req = "INSERT INTO programme (intituleP, descriptionP, prix, nbSeance, idCoach) VALUES ('".$intitule."','".$description."','".$prix."','".$nbSeance."','".$idCoach."'";
+		$req = "INSERT INTO programme (IntituleP, DescriptionP, Prix, IdCoach) VALUES ('".$intitule."','".$description."','".$prix."','".$idCoach."'";
 		$query = $this->db->query($req);
-        $row = $query->row_array();
-		
-		return $row;
 	}
 
-    public function updateProgramme($description, $prix, $nbSeance, $idProgramme){
+    public function updateProgramme($description, $prix, $idProgramme){
 		
-		$req = "UPDATE programme SET descriptifP = '".$description."', prix = '".$prix."', nbSeance = '".$nbSeance."' WHERE idP = '".$idProgramme."'";
+		$req = "UPDATE Programme SET DescriptifP = '".$description."', PrixP = '".$prix."' WHERE IdP = '".$idProgramme."';";
 		$query = $this->db->query($req);
-		$row = $query->row-array();
+	}
+	
+	function ActiverProg($idProgramme){
+				
+		$req = "UPDATE Programme SET ActifP = true WHERE IdProgramme = '".$idProgramme."';";
+		$query = $this->db->query($req);
+	}
+	
+	function DeactiverProg($idProgramme){
 		
-		return $row;
+		$req = "UPDATE Programme SET ActifP = false WHERE idProgramme = '".$idProgramme."';";
+		$query = $this->db->query($req);
+	}
+	
+	function SupprimerProg($idProgramme){
+		
+		$req = "DELETE FROM Programme WHERE IdP = '".$idProgramme."';";
+		$query = $this->db->query($req);
 	}
 
-    public function updateProgrammeVal($idUser, $idProgramme, $date){
-		
-		$req = "UPDATE achater SET validerA = true WHERE idProgramme = '".$idProgramme."' AND idUser = '".$idUser."' AND dateA = '".$date."';";
-		$query = $this->db->query($req);
-        $row = $query->row_array();
-		
-		return $row;
-	}
 
-
-    public function list_prog($id){
-        $req = "SELECT * FROM programme WHERE idCoach = '".$id."'";
+    public function list_prog($idCoach){
+        
+		$req = "SELECT * FROM Programme WHERE IdCoach = '".$idCoach."';";
         $query = $this->db->query($req);
 
         $row = $query->result_array();

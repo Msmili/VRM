@@ -6,23 +6,23 @@ class loginM extends CI_Model {
         $mail = $this->security->xss_clean($this->input->post('email'));
         $password = $this->security->xss_clean($this->input->post('password'));
         //verif mail et pass xss_clean
-        $req = "SELECT IdU,EmailU,PasswordU FROM user WHERE EmailU = '".$mail."'";
+        $req = "SELECT IdU,EmailU,PasswordU FROM User WHERE EmailU = '".$mail."'";
         $query = $this->db->query($req);
         $row = $query->row_array();
 
         if($mail == $row['EmailU'] && $password == $row['PasswordU']){
-            $res = 'user';
+            $res = 'User';
             if(!isset($_SESSION)){
                 session_start();
             }
             $_SESSION['id_user'] = $row['IdU'];
             $_SESSION['email'] = $row['EmailU'];
         }else{
-            $req = "SELECT IdC,EmailC,PasswordC FROM coach WHERE EmailC = '".$mail."'";
+            $req = "SELECT IdC,EmailC,PasswordC FROM Coach WHERE EmailC = '".$mail."'";
             $query = $this->db->query($req);
             $row = $query->row_array();
             if($mail == $row['EmailC'] && $password == $row['PasswordC']) {
-                $res = 'coach';
+                $res = 'Coach';
                 if(!isset($_SESSION)){
                     session_start();
                 }
@@ -41,7 +41,7 @@ class loginM extends CI_Model {
         $password_verif = $this->security->xss_clean($this->input->post('password_confirm'));
         if($password == $password_verif) {
             //verif mail et pass xss_clean
-            $req = "UPDATE user SET passwordU = '" . $password . "'";
+            $req = "UPDATE User SET PasswordU = '" . $password . "'";
             $query = $this->db->query($req);
 
             $valid = true;
@@ -55,7 +55,7 @@ class loginM extends CI_Model {
     }
 	
 	function selectUser($mail){
-		$req = "Select * FROM User Where EmailU = '".$mail."';";
+		$req = "SELECT * FROM User Where EmailU = '".$mail."';";
         $query = $this->db->query($req);
         $row = $query->row_array();
 		
@@ -63,7 +63,7 @@ class loginM extends CI_Model {
 	}
 	
 	function selectIdUser($mail){
-		$req = "Select IdU FROM User Where EmailU = '".$mail."';";
+		$req = "SELECT IdU FROM User WHERE EmailU = '".$mail."';";
         $query = $this->db->query($req);
         $row = $query->row_array();
 		
