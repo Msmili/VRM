@@ -48,7 +48,7 @@
 
     <div class="transaction">
         <h3>Prix du pack</h3>
-        <?php echo '<span class="centre">'.$pack[0]['Prix'].'€</span>';?>
+        <?php echo '<span class="centre">'.$pack[0]['PrixP'].'€</span>';?>
         <div id="paypal-button"></div>
     </div>
 </div>

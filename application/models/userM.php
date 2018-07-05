@@ -71,4 +71,12 @@ class userM extends CI_Model{
 
         return $row;
     }
+
+    public function updateData($tab){
+	    $res = array_filter($tab);
+	    foreach($res as $key=>$value){
+	        $req = "UPDATE user SET ".$key." = '".$value."'";
+	        $this->db->query($req);
+        }
+    }
 }

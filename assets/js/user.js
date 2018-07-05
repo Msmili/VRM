@@ -21,4 +21,10 @@ $(document).ready(function() {
                 });
         }
     }, '#paypal-button');
+
+    $(':submit').prop("disabled",true);
+    $(':input').on("change keyup", function(){
+        $(':submit').prop("disabled",false);
+    });
+
 });

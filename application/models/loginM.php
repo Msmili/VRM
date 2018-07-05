@@ -54,8 +54,8 @@ class loginM extends CI_Model {
         }
     }
 	
-	function selectUser($mail){
-		$req = "Select * FROM User Where EmailU = '".$mail."';";
+	function selectUser($id){
+		$req = "Select * FROM User Where IdU = '".$id."';";
         $query = $this->db->query($req);
         $row = $query->row_array();
 		

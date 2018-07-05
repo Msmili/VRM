@@ -1,5 +1,5 @@
 <?php
-//    var_dump($list);
+    //var_dump($list);
     for($i=0;$i<count($list);$i++){
         echo '<div class="packs">
                 <div class="little">
@@ -10,11 +10,11 @@
                     <p>'.$list[$i]['DescriptifP'].'</p>
                  </div>
                  <div class="infos">
-                    <span class="nb">Séance : '.$list[$i]['nbSeance'].'</span>';
+                    <span class="nb">Séance : '.$list[$i]['NBSeance'].'</span>';
                     if(isset($_SESSION['id_user'])) {
                         echo '<a class="btn btn-primary centre" href="' . site_url('user/detail') . '/' . $list[$i]['IdP'] . '">Détail</a>';
                     }
-                    echo'<span class="prix">'.$list[$i]['Prix'].'€</span>
+                    echo'<span class="prix">'.$list[$i]['PrixP'].'€</span>
                  </div>
             </div>';
     }

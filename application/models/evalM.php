@@ -4,7 +4,7 @@ class evalM extends CI_Model{
 	
 	function addEvaluation ($idUser, $idProgramme, $idCoach){
 		//Voir comment automatiser le libelle !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		$lib = ""
+		$lib = "";
 		
 		$dt = new DateTime('now');
 		$dt = $dt->fomat('d-m-Y H:i:s');
@@ -28,10 +28,8 @@ class evalM extends CI_Model{
 	function updateValderProg ($idEval){
 		
 		$req = "UPDATE evaluation SET ValiderE = true WHERE idE = '".$id."';";
-		$query = $this->db->query($req);
-        $row = $query->row_array();
-		
-		return $row;
+		$this->db->query($req);
+
 	}
 	
 	private function getCommentaire($idEval){
@@ -46,12 +44,14 @@ class evalM extends CI_Model{
 	function commenter ($nom, $prenom, $temps, $text, $idEval){
 		
 		//A completer pour l'affichage !!!!!!!!!!!!!!!
-		$commentaire = getCommentaire($idEval) + $test;
+		$commentaire = getCommentaire($idEval) + $text;
 		
 		$req = "UPDATE achater SET Commentaire = '".$commentaire."' WHERE idE = '".$idEval."';";
-		$query = $this->db->query($req);
-        $row = $query->row_array();
-		
-		return $row;
+		$this->db->query($req);
 	}
+
+	public function updateEvalUser($ressenti,$diff,$avis){
+        $req = "UPDATE evaluation SET RessentiE ='".$ressenti."', DifficulteE = '".$diff."',AvisE = '".$avis."'  WHERE idE = '".$id."';";
+        $this->db->query($req);
+    }
 }
