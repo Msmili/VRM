@@ -13,7 +13,7 @@
                     echo '<tr>
                         <td>' . $liste[$i]['IntituleP'] . '</td>
                         <td>' . $liste[$i]['DescriptifP'] . '</td>
-                        <td>' . $liste[$i]['Prix'] . '</td>
+                        <td>' . $liste[$i]['PrixP'] . '</td>
                         <td>
                             <span id="'. $liste[$i]['IdP'].'" class="remove"><i class="fa fa-trash"></i></span>';
                         if($liste[$i]['ActifP'] == 1) {

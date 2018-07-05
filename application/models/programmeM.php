@@ -48,7 +48,7 @@ class programmeM extends CI_Model{
 
 
     public function list_prog($id){
-        $req = "SELECT * FROM programme WHERE idCoach = '".$id."'";
+        $req = "SELECT * FROM programme WHERE idCoachP = '".$id."'";
         $query = $this->db->query($req);
 
         $row = $query->result_array();

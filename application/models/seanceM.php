@@ -5,18 +5,19 @@ class seanceM extends CI_Model{
 	function addSeance($libelle, $description, $duree, $programme)
     {
 
-        $req = "INSERT INTO seance (libelleS, descriptifS, DureeS, idProgramme) VALUES ('" . $libelle . "','" . $description . "','" . $duree . "','" . $programme . "');";
+        $req = "INSERT INTO seance (IntituleS, descriptifS, DureeS, idProgrammeS) VALUES ('" . $libelle . "','" . $description . "','" . $duree . "','" . $programme . "');";
         $this->db->query($req);
     }
 
     public function list_seance($idC){
-        $req = "SELECT IdS,LibelleS,DescriptifS, Dateheure, ValiderS, DureeS,NomU, PrenomU,IdU, IdProgramme,IntituleP,idCoach
+        $req = "SELECT DISTINCT(IdS),IntituleS,DescriptifS, DateHeureE, DureeS,NomU, PrenomU,IdU, IdProgrammeS,IntituleP,idCoachP
                 FROM programme 
-                INNER JOIN seance ON programme.idP = seance.idProgramme 
-                INNER JOIN user ON seance.idUser = user.idU
-                WHERE programme.idCoach = '".$idC."' 
-                AND Dateheure > '".date('Y-m-d H:i:s')."'
-                ORDER BY Dateheure";
+                INNER JOIN seance ON programme.idP = seance.idProgrammeS 
+                INNER JOIN evaluation ON programme.IdCoachP = evaluation.IdCoachE                
+                INNER JOIN user ON evaluation.IdUserE = user.IdU
+                WHERE programme.idCoachP = '".$idC."' 
+                AND DateheureE > '".date('Y-m-d H:i:s')."'
+                ORDER BY DateheureE";
 
         $query = $this->db->query($req);
 
@@ -26,7 +27,7 @@ class seanceM extends CI_Model{
     }	
 
     public function seance_programme($idP){
-        $req = "SELECT LibelleS,DescriptifS,DureeS FROM seance WHERE IdProgramme = '".$idP."'";
+        $req = "SELECT IntituleS,DescriptifS,DureeS FROM seance WHERE IdProgrammeS = '".$idP."'";
         $query = $this->db->query($req);
         $row = $query->result_array();
 
@@ -38,8 +39,8 @@ class seanceM extends CI_Model{
 		
 		$dt = new DateTime('now');
 		$dt = $dt->fomat('d-m-Y H:i:s');
-		
-		$req = "SELECT DescriptifS, Dateheure, ValiderS, DureeS, IdUser, IdProgramme, libelleP nomU, prenomU, idCoach FROM programme, seance, user WHERE seance.IdUser = user.idU AND seance.idProgramme = programme.idP AND programme.idCoach = '".$idCoach."' AND Dateheure > '".$dt."' ORDER BY Dateheure ASC";
+
+		$req = "SELECT DescriptifS, DureeS, IdUser, IdProgrammeS, libelleP, nomU, prenomU, idCoachP FROM programme, seance, user WHERE seance.IdUser = user.idU AND seance.idProgramme = programme.idP AND programme.idCoach = '".$idCoach."' AND Dateheure > '".$dt."' ORDER BY Dateheure ASC";
 		$query = $this->db->query($req);
         $row = $query->row_array();
 		
@@ -52,7 +53,7 @@ class seanceM extends CI_Model{
 		$dt = new DateTime('now');
 		$dt = $dt->fomat('d-m-Y H:i:s');
 		
-		$req = "SELECT DescriptifS, Dateheure, ValiderS, DureeS, IdUser, IdProgramme, libelleP nomU, prenomU, idCoach, idUser FROM programme, seance, user WHERE seance.IdUser = user.idU AND user.idU = '".$idUser."' AND seance.idProgramme = programme.idP AND programme.idCoach = '".$idCoach."' AND Dateheure > '".$dt."' ORDER BY Dateheure ASC";
+		$req = "SELECT DescriptifS, DureeS, IdUser, IdProgrammeS, libelleP, nomU, prenomU, idCoachP, idUser FROM programme, seance, user WHERE seance.IdUser = user.idU AND user.idU = '".$idUser."' AND seance.idProgramme = programme.idP AND programme.idCoach = '".$idCoach."' AND Dateheure > '".$dt."' ORDER BY Dateheure ASC";
 		$query = $this->db->query($req);
         $row = $query->row_array();
 		
@@ -61,7 +62,7 @@ class seanceM extends CI_Model{
 	
 	function updateSeance($description, $dateheure, $idSeance){
 		
-		$req = "UPDATE seance SET descriptionS = '".$description."', $DateHeure = '".$dateheure."' WHERE idS = '".$idSeance."';";
+		$req = "UPDATE seance SET descriptionS = '".$description."'WHERE idS = '".$idSeance."';";
 		$query = $this->db->query($req);
         $row = $query->row_array();
 		

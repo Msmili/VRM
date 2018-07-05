@@ -34,6 +34,22 @@
             $this->loader('coach/seance_programme',$data);
         }
 
+        public function evaluation($idS=""){
+            $data['infos'] = $this->evalM->getEvalUser($idS);
+            $this->loader('coach/evaluation',$data);
+        }
+
+        public function add_eval($id=""){
+            $note = (isset($_POST['accomplissement']))? $_POST['accomplissement'] : '' ;
+            $com = (isset($_POST['comm']))? $_POST['comm'] : '' ;
+            $valide = (isset($_POST['choix']))? $_POST['choix'] : '' ;
+            $id_user = (isset($_POST['id']))? $_POST['id'] : '' ;
+
+            $this->evalM->confirmEvalUser($note,$com,$valide, $id_user);
+
+            $this->seance();
+        }
+
         public function removePrg(){
             $id_prg = $_POST['id'];
 
@@ -55,7 +71,7 @@
         public function detail_seance(){
             $id_seance = $_POST['id'];
 
-            $this->loader('coach/detail');
+            $this->loader('coach/evaluation');
         }
 
         public function add_programme(){

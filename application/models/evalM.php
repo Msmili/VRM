@@ -54,4 +54,16 @@ class evalM extends CI_Model{
         $req = "UPDATE evaluation SET RessentiE ='".$ressenti."', DifficulteE = '".$diff."',AvisE = '".$avis."'  WHERE idE = '".$id."';";
         $this->db->query($req);
     }
+	public function confirmEvalUser($note,$com,$choix,$id){
+        $req = "UPDATE evaluation SET NoteE ='".$note."', CommentaireE = '".$com."',ValiderE = '".$choix."'  WHERE idE = '".$id."';";
+        $this->db->query($req);
+    }
+
+    public function getEvalUser($id){
+        $req = "SELECT * FROM evaluation INNER JOIN user ON evaluation.idUserE = user.idU WHERE idSeanceE = '".$id."';";
+        $query = $this->db->query($req);
+        $row = $query->row_array();
+
+        return $row;
+    }
 }

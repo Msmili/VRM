@@ -10,7 +10,7 @@
     <?php
         for($i=0;$i<count($detail);$i++){
             echo '<tr>
-                        <td> ' . $detail[$i]['LibelleS'] .'</td>
+                        <td> ' . $detail[$i]['IntituleS'] .'</td>
                         <td>' . $detail[$i]['DescriptifS'] . '</td>
                         <td>' . $detail[$i]['DureeS'] . '</td>             
                    </tr>';

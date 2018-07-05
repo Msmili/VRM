@@ -53,13 +53,4 @@
 
             $this->profil();
         }
-        public function evaluation(){
-            $ressenti = (isset($_POST['ressenti']))? $_POST['ressenti'] : '' ;
-            $difficulte = (isset($_POST['difficulte']))? $_POST['difficulte'] : '' ;
-            $avis = (isset($_POST['avis']))? $_POST['avis'] : '' ;
-
-            $this->evalM->updateEvalUser($ressenti,$difficulte,$avis);
-
-            $this->profil();
-        }
     }
