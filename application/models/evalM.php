@@ -4,17 +4,24 @@ class evalM extends CI_Model{
 	
 	function addEvaluation ($idUser, $idProgramme, $idCoach){
 		//Voir comment automatiser le libelle !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		$lib = ""
-		
-		$dt = new DateTime('now');
-		$dt = $dt->fomat('d-m-Y H:i:s');
-		
-		$req = "INSERT INTO Evaluation (Libelle, DateE, IdUser, IdProgramme, IdCoach) VALUES ('".$lib."','".$dt."','".$idUser."','".$idProgramme."', '".$idCoach."');";
-		$query = $this->db->query($req);
-        $row = $query->row_array();
-		
-		return $row;
+		$seance = seance_programme($idProgramme);
+		$res = Count($seance);
+		for ($i=0; $i<$res; $i++){
+			$s = $seance[$i];
+			$dt = new DateTime('now');
+			$dt = $dt->fomat('d-m-Y H:i:s');
+			
+			$dt2 = new datetime("")
+			$req = "INSERT INTO Evaluation (Libelle, DateE, IdUser, IdProgramme, IdCoach) VALUES ('".$s['LibelleS']."','date_add(now(),interval '".2+$i."' day)','".$idUser."','".$idProgramme."', '".$idCoach."');";
+			$query = $this->db->query($req);
+		}
 	}
+	public function seance_programme($idP){
+        $req = "SELECT LibelleS,DescriptifS,DureeS FROM seance WHERE IdProgramme = '".$idP."'";
+        $query = $this->db->query($req);
+        $row = $query->result_array();
+        return $row;
+    	}
 	
 	function noter ($idEval, $note){
 		
