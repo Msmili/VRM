@@ -116,6 +116,7 @@ class seanceM extends CI_Model{
                 INNER JOIN evaluation ON seance.idS = evaluation.idSeanceE
                 INNER JOIN user ON evaluation.IdUserE = user.idU
                 WHERE user.IdU = '".$idU."' 
+                AND DateheureE <  NOW()
                 ORDER BY DateheureE";
             $query = $this->db->query($req);
             $row = $query->result_array();
@@ -128,7 +129,9 @@ class seanceM extends CI_Model{
                 INNER JOIN seance ON programme.idP = seance.idProgrammeS
                 INNER JOIN evaluation ON seance.idS = evaluation.idSeanceE
                 INNER JOIN user ON evaluation.IdUserE = user.idU
-                WHERE user.IdU = '".$idU."' 
+                WHERE user.IdU = '".$idU."'
+                AND noteE != 0
+                AND DateheureE < NOW()
                 ORDER BY DateheureE";
             $query = $this->db->query($req);
             $row = $query->result_array();

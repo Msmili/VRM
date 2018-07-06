@@ -130,10 +130,16 @@
                     for($i=0;$i<count($ttSeance);$i++){
                         $seance[$i]['title'] = $ttSeance[$i]['IntituleS'].' '.$dtSeance[$i]['DateheureE'];
                     }
+
+                    $note = array();
+                    for($i=0;$i<count($perf);$i++){
+                        $note[$i]['note'] = $perf[$i]['noteE'];
+                    }
                 ?>
 
                 <script>
                     var seance = <?php echo json_encode($seance); ?>;
+                    var note = <?php echo json_encode($note); ?>;
                 </script>
 
                 <canvas id="myChart" width="400" height="400"></canvas>

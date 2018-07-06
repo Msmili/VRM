@@ -62,4 +62,17 @@ class evalM extends CI_Model{
 
         return $row;
     }
+
+    public function note($id){
+        $req ="SELECT noteE 
+                FROM evaluation 
+                WHERE idUserE = '".$id."'
+                AND noteE != 0
+                AND DateheureE < NOW()
+                ORDER BY DateheureE";
+        $query = $this->db->query($req);
+        $row = $query->result_array();
+
+        return $row;
+    }
 }

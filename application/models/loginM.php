@@ -69,4 +69,14 @@ class loginM extends CI_Model {
 		
 		return $row;
 	}
+
+	public function newUser($nom,$prenom,$datenaiss,$sex,$email,$pass,$tel,$adr,$ville,$cp,$poids,$taille){
+        $mail = $this->security->xss_clean($email);
+        $password = $this->security->xss_clean($pass);
+        $adr = $this->security->xss_clean($adr);
+
+        $req = "INSERT INTO user (`NomU`,`PrenomU`,`DateNaissU`,`SexeU`,`EmailU`,`PasswordU`,`TelephoneU`,`AdresseU`,`VilleU`,`CodePostalU`,`PoidsU`,`TailleU`,`DateInscriptionU`) 
+                VALUES('".$nom."','".$prenom."','".$datenaiss."','".$sex."','".$email."','".$pass."','".$tel."','".$adr."','".$ville."','".$cp."','".$poids."','".$taille."','".date('Y-m-d')."')";
+        $this->db->query($req);
+    }
 }

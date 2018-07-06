@@ -41,6 +41,7 @@
             $data['infos'] = $this->loginM->selectUser($id);
             $data['ttSeance'] = $this->seanceM->allSeance($id);
             $data['dtSeance'] = $this->seanceM->dtSeance($id);
+            $data['perf'] = $this->evalM->note($id);
 
             $this->loader('user/profil',$data);
         }
@@ -87,6 +88,24 @@
             $this->evalM->updateEvalUser($ressenti,$difficulte,$avis, $id_user);
 
             $this->seance();
+        }
+
+        public function inscription(){
+            $prenom = (isset($_POST['prenom']))? $_POST['prenom'] : '' ;
+            $nom = (isset($_POST['nom']))? $_POST['nom'] : '' ;
+            $datenaiss = (isset($_POST['naiss']))? $_POST['naiss'] : '' ;
+            $sex = (isset($_POST['sex']))? $_POST['sex'] : '' ;
+            $email = (isset($_POST['email']))? $_POST['email'] : '' ;
+            $tel = (isset($_POST['tel']))? $_POST['tel'] : '' ;
+            $adr = (isset($_POST['adr']))? $_POST['adr'] : '' ;
+            $ville = (isset($_POST['ville']))? $_POST['ville'] : '' ;
+            $cp = (isset($_POST['cp']))? $_POST['cp'] : '' ;
+            $pass = (isset($_POST['pass']))? $_POST['pass'] : '' ;
+            $poids = (isset($_POST['poids']))? $_POST['poids'] : '' ;
+            $taille = (isset($_POST['taille']))? $_POST['taille'] : '' ;
+
+            $this->loginM->newUser($nom,$prenom,$datenaiss,$sex,$email,$pass,$tel,$adr,$ville,$cp,$poids,$taille);
+            $this->loader('connexion');
         }
 
     }

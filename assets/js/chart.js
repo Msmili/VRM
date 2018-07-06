@@ -4,15 +4,21 @@ for (i=0;i<seance.length;i++) {
             dateArr.push(seance[i][n]);
     }
 }
-alert(dateArr);
+var noteArr = [];
+for (i=0;i<note.length;i++) {
+    for (n in note[i]) {
+        noteArr.push(note[i][n]);
+    }
+}
+
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
         labels: dateArr,//seance par date
         datasets: [{
-            label: '# of Votes',
-            data: [100, 75, 50, 25, 5],//donnée user
+            label: 'Performance',
+            data: noteArr,//donnée user
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
