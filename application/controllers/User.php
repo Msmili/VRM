@@ -29,4 +29,9 @@
 
             $this->loader('user/detail',$data);
         }
+		public function addEval(){
+            $idU = $_SESSION['id_User'];
+            $data['liste'] = $this->evalM->addEvaluation($idU);
+            $this->loader('user/seance',$data);
+        }
     }
