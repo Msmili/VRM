@@ -14,8 +14,7 @@
                         <td>' . $liste[$i]['IntituleP'] . '</td>
                         <td>' . $liste[$i]['DescriptifP'] . '</td>
                         <td>' . $liste[$i]['PrixP'] . '</td>
-                        <td>
-                            <span id="'. $liste[$i]['IdP'].'" class="remove"><i class="fa fa-trash"></i></span>';
+                        <td>';
                         if($liste[$i]['ActifP'] == 1) {
                             echo '<span id="' . $liste[$i]['IdP'] . '" class="unactive"><i class="fa fa-exclamation-triangle"></i></span>';
                         }else{

@@ -45,10 +45,12 @@
 
 </div>
 <div class="w3-display-container w3-animate-opacity">
-
     <div class="transaction">
         <h3>Prix du pack</h3>
         <?php echo '<span class="centre">'.$pack[0]['PrixP'].'€</span>';?>
+        <input type="hidden" id="id_prg" value="<?php echo $pack[0]['IdP']; ?>"/>
+        <input type="hidden" id="id_coach" value="<?php echo $pack[0]['IdCoachP']; ?>"/>
+        <button id="payer" class="btn btn-primary"> Afficher moyen de paiement</button>
         <div id="paypal-button"></div>
     </div>
 </div>

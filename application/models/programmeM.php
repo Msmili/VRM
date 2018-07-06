@@ -28,8 +28,6 @@ class programmeM extends CI_Model{
 	}
 	
 	public function ActiverProg($idProgramme){
-        $req = "UPDATE seance SET ActifS = 1 WHERE idProgramme = '".$idProgramme."'";
-        $this->db->query($req);
         $req = "UPDATE programme SET ActifP = 1 WHERE IdP = '".$idProgramme."';";
         $this->db->query($req);
 	}
@@ -40,7 +38,7 @@ class programmeM extends CI_Model{
 	}
 	
 	public function SupprimerProg($idProgramme){
-	    $req = "DELETE FROM seance WHERE idProgramme = '".$idProgramme ."';";
+	    $req = "DELETE FROM seance WHERE idProgrammeS = '".$idProgramme ."';";
 	    $this->db->query($req);
 		$req = "DELETE FROM programme WHERE IdP = '".$idProgramme."';";
 		$this->db->query($req);
