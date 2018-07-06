@@ -9,6 +9,9 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li><a href="#2a" data-toggle="tab">Performance</a>
             </li>
+
+            <li><a href="#3a" data-toggle="tab">&nbsp;&nbsp;Taux reussite</a>
+            </li>
         </ul>
 
         <div class="tab-content clearfix">
@@ -135,14 +138,34 @@
                     for($i=0;$i<count($perf);$i++){
                         $note[$i]['note'] = $perf[$i]['noteE'];
                     }
+
+                    $tot = $seanceEc['valide'] + $seanceR['valide'];
+                    $reussi = ($seanceR['valide']/$tot)*100;
+                    $echec = ($seanceEc['valide']/$tot)*100;
                 ?>
 
                 <script>
                     var seance = <?php echo json_encode($seance); ?>;
                     var note = <?php echo json_encode($note); ?>;
+                    var reussie = <?php echo json_encode($reussi); ?>;
+                    var echec = <?php echo json_encode($echec); ?>;
                 </script>
 
-                <canvas id="myChart" width="400" height="400"></canvas>
+                <canvas id="myChart" width="50" height="50"></canvas>
+            </div>
+            <div class="tab-pane" id="3a">
+                <h3>Graphique des réussites</h3>
+                <?php
+                $tot = $seanceEc['valide'] + $seanceR['valide'];
+                $reussi = ($seanceR['valide']/$tot)*100;
+                $echec = ($seanceEc['valide']/$tot)*100;
+                ?>
+
+                <script>
+                    var reussie = <?php echo json_encode($reussi); ?>;
+                    var echec = <?php echo json_encode($echec); ?>;
+                </script>
+                <canvas id="myChart" width="50" height="50"></canvas>
             </div>
 
         </div>

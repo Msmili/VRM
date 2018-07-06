@@ -42,6 +42,8 @@
             $data['ttSeance'] = $this->seanceM->allSeance($id);
             $data['dtSeance'] = $this->seanceM->dtSeance($id);
             $data['perf'] = $this->evalM->note($id);
+            $data['seanceR'] = $this->evalM->seanceReussi($id);
+            $data['seanceEc'] = $this->evalM->seanceEchoue($id);
 
             $this->loader('user/profil',$data);
         }

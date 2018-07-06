@@ -75,4 +75,21 @@ class evalM extends CI_Model{
 
         return $row;
     }
+
+    public function seanceReussi($id){
+        $req = "SELECT COUNT(ValiderE) as valide FROM evaluation WHERE idUserE = '".$id."' AND ValiderE = 1";
+        $query = $this->db->query($req);
+        $row = $query->row_array();
+
+        return $row;
+
+    }
+    public function seanceEchoue($id){
+        $req = "SELECT COUNT(ValiderE) as valide FROM evaluation WHERE idUserE = '".$id."' AND ValiderE = 0";
+        $query = $this->db->query($req);
+        $row = $query->row_array();
+
+        return $row;
+
+    }
 }
