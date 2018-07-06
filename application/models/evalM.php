@@ -4,7 +4,7 @@ class evalM extends CI_Model{
 	
 	function addEvaluation ($idUser, $idCoach,$idProgramme){
 
-	    $req = "INSERT INTO acheter (`IdUserA`,`IdProgrammeA`,`DateA`) VALUES('".$idUser."','".$idProgramme."','now()')";
+	    $req = "INSERT INTO acheter (`IdUserA`,`IdProgrammeA`,`DateA`) VALUES('".$idUser."','".$idProgramme."','".date('Y-m-d H:i:s')."')";
         $this->db->query($req);
 		//Voir comment automatiser le libelle !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		$seance = $this->seance_programme($idProgramme);
