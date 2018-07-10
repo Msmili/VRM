@@ -5,7 +5,7 @@ class programmeM extends CI_Model{
     public function addProgramme($intitule, $description, $prix,$nb, $idCoach)
     {
 
-        $req = "INSERT INTO programme (intituleP, descriptifP, prix,nbSeance, idCoach) VALUES ('" . $intitule . "','" . $description . "','" . $prix . "','" . $nb . "','" . $idCoach . "')";
+        $req = "INSERT INTO programme (intituleP, descriptifP, prixP,nbSeance, idCoach) VALUES ('" . $intitule . "','" . $description . "','" . $prix . "','" . $nb . "','" . $idCoach . "')";
         $this->db->query($req);
     }
 
@@ -20,7 +20,7 @@ class programmeM extends CI_Model{
 
     public function updateProgramme($description, $prix, $idProgramme){
 		
-		$req = "UPDATE programme SET descriptifP = '".$description."', prix = '".$prix."' WHERE idP = '".$idProgramme."'";
+		$req = "UPDATE programme SET descriptifP = '".$description."', PrixP = '".$prix."' WHERE idP = '".$idProgramme."'";
 		$query = $this->db->query($req);
 		$row = $query->row-array();
 		
