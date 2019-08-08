@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `coach` (
 --
 
 INSERT INTO `coach` (`IdC`, `NomC`, `PrenomC`, `DateNaissC`, `SexeC`, `EmailC`, `PasswordC`, `TelephoneC`, `AdresseC`, `VilleC`, `CodePostalC`) VALUES
-(1, 'Hemric', 'Pascal', '0000-00-00', '', 'coach@coach.fr', 'coach', '', '', '', '');
+(1, 'Hemric', 'Pascal', '1986-02-14', '', 'coach@coach.fr', 'coach', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -222,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`IdU`, `NomU`, `PrenomU`, `DateNaissU`, `SexeU`, `EmailU`, `PasswordU`, `TelephoneU`, `AdresseU`, `VilleU`, `CodePostalU`, `PoidsU`, `TailleU`, `DateInscriptionU`) VALUES
 (1, 'Dupont', 'Charles', '1995-01-01', 'M', 'user@user.fr', 'test', '0123456789', '111 test', 'TEstVille', '12300', '64.20', '1.50', '2018-07-03'),
-(3, 'Marshall', 'Casque', '0000-00-00', 'M', 'marshall@test.fr', 'azerty', '0123456789', 'teste de ladresse', 'Testy', '12300', '64.20', '185.00', '2018-07-06');
+(3, 'Marshall', 'Casque', '2001-04-16', 'M', 'marshall@test.fr', 'azerty', '0123456789', 'teste de ladresse', 'Testy', '12300', '64.20', '185.00', '2018-07-06');
 
 --
 -- Contraintes pour les tables exportées
